@@ -14,7 +14,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        return view('welcome')->with('empresas', Empresa::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        //
+        return view('empresa.crear');
     }
 
     /**
@@ -35,7 +35,16 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empresa = new Empresa();
+        $empresa->denominacion = $request['denominacion'];
+        $empresa->telefono = $request['telefono'];
+        $empresa->horario = $request['horario'];
+        $empresa->info = $request['info'];
+        $empresa->latitud = $request['latitud'];
+        $empresa->longitud = $request['longitud'];
+        $empresa->domicilio = $request['domicilio'];
+        $empresa->email = $request['email'];
+        $empresa->save();
     }
 
     /**
@@ -46,7 +55,7 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        //
+        return view('empresa.ver')->with('empresa',$empresa);
     }
 
     /**
@@ -57,7 +66,7 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        //
+        return view('empresa.editar')->with('empresa',$empresa);
     }
 
     /**
@@ -69,7 +78,15 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        //
+        $empresa->denominacion = $request['denominacion'];
+        $empresa->telefono = $request['telefono'];
+        $empresa->horario = $request['horario'];
+        $empresa->info = $request['info'];
+        $empresa->latitud = $request['latitud'];
+        $empresa->longitud = $request['longitud'];
+        $empresa->domicilio = $request['domicilio'];
+        $empresa->email = $request['email'];
+        $empresa->save();
     }
 
     /**
@@ -80,6 +97,7 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa)
     {
-        //
+        $empresa->delete();
+        return redirect('/');
     }
 }
