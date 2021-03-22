@@ -14,7 +14,7 @@
             @foreach ($empresas as $empresa)
             <tr>
                 <td><a href="/empresa/{{$empresa->id}}/edit">{{$empresa->denominacion}}</a></td>
-                <td><a href="/home/{{$empresa->id}}">/home/{{$empresa->id}}</a></td>
+                <td><a href="/empresa/{{$empresa->id}}">/empresa/{{$empresa->id}}</a></td>
                 @endforeach
             </tr>
         </tbody>

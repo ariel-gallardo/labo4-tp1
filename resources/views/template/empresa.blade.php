@@ -23,14 +23,14 @@
 <div class="container top-sect">
     <div class="navbar-header">
         <h1 class="navbar-brand">
-            <a data-type='rd-navbar-brand' href="./"><small>Denominación <br>Empresa</small></a>
+            <a data-type='rd-navbar-brand' href="/empresa/{{$empresa->id}}"><small>{{$empresa->denominacion}}</small></a>
         </h1>
         <a class="search-form_toggle" href="#"></a>
     </div>
     <div class="help-box text-right">
         <p>Telefono</p>
-        <a href="callto:#">800-2345-6789</a>
-        <small><span>Horario:</span> 6am-4pm PST M-Th; &nbsp;6am-3pm PST Fri</small>
+        <a href="callto:#{{$empresa->telefono}}">{{$empresa->telefono}}</a>
+        <small><span>Horario:</span> {{$empresa->horario}}</small>
     </div>
 </div>
 <div id="stuck_container" class="stuck_container">
@@ -39,10 +39,10 @@
                         <div>
                             <ul class="nav navbar-nav sf-menu sf-js-enabled sf-arrows" data-type="navbar">
                                 <li style="list-style: none;" class="active">
-                                    <a href="/home">INICIO</a>
+                                    <a href="/empresa/{{$empresa->id}}">INICIO</a>
                                 </li>
                                 <li style="list-style: none;">
-                                    <a href="/">LISTA EMPRESAS</a>
+                                    <a href="/empresa">LISTA EMPRESAS</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,7 +62,7 @@
 <section class="well">
     <div class="container">
         <p class="rights">
-            Denominación Empresa &#169; <span id="copyright-year"></span>
+            {{$empresa->denominacion}} &#169; <span id="copyright-year"></span>
             <a href="index-5.html">Privacy Policy</a>
             <!-- {%FOOTER_LINK} -->
         </p>
