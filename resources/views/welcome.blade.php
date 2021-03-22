@@ -13,7 +13,7 @@
         <tbody>
             @foreach ($empresas as $empresa)
             <tr>
-                <td>{{$empresa->denominacion}}</td>
+                <td><a href="/empresa/{{$empresa->id}}/edit">{{$empresa->denominacion}}</a></td>
                 <td><a href="/home/{{$empresa->id}}">/home/{{$empresa->id}}</a></td>
                 @endforeach
             </tr>
@@ -22,7 +22,7 @@
     @else
     <h3 class="my-lg-2 text-uppercase">no hay empresas cargadas.</h3>
     @endif
-    {!! Form::open(['url' => 'empresa/crear']) !!}
+    {!! Form::open(['action' => 'App\Http\Controllers\EmpresaController@create']) !!}
     <button type="submit" class="btn btn-outline-success">+</button>
     {!! Form::close() !!}
 </div>
