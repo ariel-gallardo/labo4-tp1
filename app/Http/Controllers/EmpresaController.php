@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
 {
+
+    public function validar(Request $req){
+        $this->validate($req,[
+            "denominacion" => "required | string | min:3 | max:128",
+            "telefono" => "required | string | min:7 | max:50",
+            "horario" => "required | string | min:10 | max:256 ",
+            "info" => "required | string | min:10 | max:1024 ",
+            "latitud" => "required | numeric | between:-85.000000,85.000000 ",
+            "longitud" => "required  | numeric | between:-180.000000,180.000000 ",
+            "domicilio" => "required | min:10 | max:256 ",
+            "email" => "required | min:7 | max:75"
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,6 +48,7 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validar($request);
         $empresa = new Empresa();
         $empresa->denominacion = $request['denominacion'];
         $empresa->telefono = $request['telefono'];
@@ -78,6 +92,7 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
+        $this->validar($request);
         $empresa->denominacion = $request['denominacion'];
         $empresa->telefono = $request['telefono'];
         $empresa->horario = $request['horario'];
