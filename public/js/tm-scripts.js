@@ -30,11 +30,13 @@ function isIE() {
 
 /* cookie.JS
  ========================================================*/
-include('js/jquery.cookie.js');
+include('/js/jquery.cookie.js');
 
 /* Easing library
  ========================================================*/
-include('js/jquery.easing.1.3.js');
+include('/js/jquery.easing.1.3.js');
+
+
 
 
 /* Stick up menus
@@ -43,7 +45,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('js/tmstickup.js');
+        include('/js/tmstickup.js');
 
         $(document).ready(function () {
             $('#stuck_container').TMStickUp({})
@@ -57,7 +59,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('js/jquery.ui.totop.js');
+        include('/js/jquery.ui.totop.js');
 
         $(document).ready(function () {
             $().UItoTop({easingType: 'easeOutQuart'});
@@ -71,7 +73,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('[data-equal-group]');
     if (o.length > 0) {
-        include('js/jquery.equalheights.js');
+        include('/js/jquery.equalheights.js');
     }
 })(jQuery);
 
@@ -93,7 +95,7 @@ include('js/jquery.easing.1.3.js');
 ;
 (function ($) {
     function include(url) {
-	document.write('<script src="js/' + url + '"></script>');
+	document.write('<script src="/js/' + url + '"></script>');
 	return false;
 }
 	include('superfish.js');
@@ -109,7 +111,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('.resp-tabs');
     if (o.length > 0) {
-        include('js/jquery.responsive.tabs.js');
+        include('/js/jquery.responsive.tabs.js');
 
         $(document).ready(function () {
             o.easyResponsiveTabs();
@@ -123,7 +125,7 @@ include('js/jquery.easing.1.3.js');
  ========================================================*/
 ;
 (function ($) {
-    include('js/jquery.rd-navbar.js');
+    include('/js/jquery.rd-navbar.js');
 })(jQuery);
 
 
@@ -135,7 +137,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('.accordion');
     if (o.length > 0) {
-        include('js/jquery.ui.accordion.min.js');
+        include('/js/jquery.ui.accordion.min.js');
 
         $(document).ready(function () {
             o.accordion({
@@ -156,7 +158,7 @@ include('js/jquery.easing.1.3.js');
     var o = document.getElementById("google-map");
     if (o) {
         include('//maps.google.com/maps/api/js?sensor=false');
-        include('js/jquery.rd-google-map.js');
+        include('/js/jquery.rd-google-map.js');
 
         $(document).ready(function () {
             var o = $('#google-map');
@@ -288,7 +290,7 @@ include('js/jquery.easing.1.3.js');
 ;(function ($) {
     var o = $('.owl-carousel');
     if (o.length > 0) {
-        include('js/owl.carousel.min.js');
+        include('/js/owl.carousel.min.js');
         $(document).ready(function () {
             o.owlCarousel({
                 margin: 30,
@@ -317,7 +319,7 @@ include('js/jquery.easing.1.3.js');
 
     if ((navigator.userAgent.toLowerCase().indexOf('msie') == -1 ) || (isIE() && isIE() > 9)) {
         if (o.hasClass('desktop')) {
-            include('js/wow.js');
+            include('/js/wow.js');
 
             $(document).ready(function () {
                 new WOW().init();
@@ -382,10 +384,10 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
 var o = $('#camera');
     if (o.length > 0) {
         if (!(isIE() && (isIE() > 9))) {
-            include('js/jquery.mobile.customized.min.js');
+            include('/js/jquery.mobile.customized.min.js');
         }
 
-        include('js/camera.js');
+        include('/js/camera.js');
 
         $(document).ready(function () {
             o.camera({
@@ -412,9 +414,9 @@ var o = $('#camera');
 (function ($) {
     var o = $('.search-form');
     if (o.length > 0) {
-        include('js/TMSearch.js');
+        include('/js/TMSearch.js');
     }
-})(jQuery);  
+})(jQuery);
 
 
 
@@ -426,11 +428,11 @@ var o = $('#camera');
 (function ($) {
     var o = $('#contact-form');
     if (o.length > 0) {
-        include('js/modal.js');
-        include('js/TMForm.js'); 
+        include('/js/modal.js');
+        include('/js/TMForm.js');
 
         if($('#contact-form .recaptcha').length > 0){
-            include('//www.google.com/recaptcha/api/js/recaptcha_ajax.js');
+            include('//www.google.com/recaptcha/api//js/recaptcha_ajax.js');
         }
     }
 })(jQuery);
@@ -493,9 +495,9 @@ o
 ;(function ($) {
     var o = $('.thumb');
     if (o.length > 0) {
-        include('js/jquery.fancybox.js');
-        include('js/jquery.fancybox-media.js');
-        include('js/jquery.fancybox-buttons.js');
+        include('/js/jquery.fancybox.js');
+        include('/js/jquery.fancybox-media.js');
+        include('/js/jquery.fancybox-buttons.js');
         $(document).ready(function () {
             o.fancybox();
         });
@@ -505,8 +507,8 @@ o
 /* Parallax
 =============================================*/
 ;(function ($) {
-    include('js/jquery.rd-parallax.js');
-})(jQuery); 
+    include('/js/jquery.rd-parallax.js');
+})(jQuery);
 
 
 
