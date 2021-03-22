@@ -16,6 +16,14 @@ class CreateNoticiasTable extends Migration
         Schema::create('noticias', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('titulo',128);
+            $table->string('resumen',1024);
+            $table->string('imagen',128);
+            $table->string('contenido',20480);
+            $table->char('publica');
+            $table->date('fecha');
+            $table->bigInteger('idEmpresa');
+            $table->foreign('idEmpresa')->references('id')->on('empresas');
         });
     }
 

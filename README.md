@@ -7,3 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 #Trabajo Practico I - Laboratorio IV
+*	Copiar .env.example como .env luego editar 
+	DB_CONNECTION=mysql
+	DB_HOST=127.0.0.1
+	DB_PORT=3306
+	DB_DATABASE=nombredb
+	DB_USERNAME=usuario
+	DB_PASSWORD=password
+
