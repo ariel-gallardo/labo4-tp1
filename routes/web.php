@@ -23,10 +23,6 @@ Route::get('/tiny', function () {
     return view('tiny');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
-
 Route::get('/detalle', function () {
     return view('detalle');
 });
