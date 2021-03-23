@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Empresa;
+use App\Models\Noticia;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,5 +17,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         Empresa::factory(50)->create();
+        Noticia::factory(300)->create();
     }
 }

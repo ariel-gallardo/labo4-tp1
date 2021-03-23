@@ -22,7 +22,13 @@ class NoticiaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'titulo' => $this->faker->title(),
+            'resumen' => $this->faker->realText(),
+            'imagen' => $this->faker->imageUrl(),
+            'contenido' => $this->faker->realText(),
+            'publica' => $this->faker->regexify('[yn]'),
+            'fecha' => $this->faker->date(),
+            'idEmpresa' => $this->faker->numberBetween(1,50)
         ];
     }
 }
