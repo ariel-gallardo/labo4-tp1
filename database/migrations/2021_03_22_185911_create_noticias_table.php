@@ -19,11 +19,11 @@ class CreateNoticiasTable extends Migration
             $table->string('titulo',128);
             $table->string('resumen',1024);
             $table->string('imagen',128);
-            $table->string('contenido',20480);
+            $table->text('contenido',20480);
             $table->char('publica');
             $table->date('fecha');
-            $table->bigInteger('idEmpresa');
-            $table->foreign('idEmpresa')->references('id')->on('empresas');
+            $table->bigInteger('idEmpresa')->unsigned();
+            $table->foreign('idEmpresa')->references('id')->on('empresas')->onDelete('cascade');
         });
     }
 

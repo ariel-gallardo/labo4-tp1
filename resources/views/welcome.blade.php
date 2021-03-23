@@ -19,6 +19,7 @@
             </tr>
         </tbody>
     </table>
+    {{$empresas->links()}}
     @else
     <h3 class="my-lg-2 text-uppercase">no hay empresas cargadas.</h3>
     @endif
