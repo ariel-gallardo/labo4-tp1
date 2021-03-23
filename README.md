@@ -9,9 +9,10 @@
 #Trabajo Practico I - Laboratorio IV
 *	Copiar .env.example como .env luego editar 
 	DB_CONNECTION=mysql
-	DB_HOST=127.0.0.1
-	DB_PORT=3306
+	DB_HOST=ip
+	DB_PORT=puerto
 	DB_DATABASE=nombredb
 	DB_USERNAME=usuario
 	DB_PASSWORD=password
-
+*	Migrar bases de datos, crear empresas y noticias
+php artisan migrate:refresh --seed

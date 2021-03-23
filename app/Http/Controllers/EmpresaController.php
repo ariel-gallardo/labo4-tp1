@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empresa;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
@@ -115,4 +117,5 @@ class EmpresaController extends Controller
         $empresa->delete();
         return redirect('/');
     }
+    
 }
