@@ -23,6 +23,7 @@
     <h3 class="my-lg-2 text-uppercase">no hay empresas cargadas.</h3>
     @endif
     {!! Form::open(['action' => 'App\Http\Controllers\EmpresaController@create']) !!}
+    {!! Form::hidden('_method', 'GET') !!}
     <button type="submit" class="btn btn-outline-success">+</button>
     {!! Form::close() !!}
 </div>
