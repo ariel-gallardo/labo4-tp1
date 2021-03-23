@@ -2,6 +2,16 @@
 @section('content')
 <div class="container col-lg-6">
     <h1 class="text-center text-uppercase">empresa</h1>
+    @if(count($errors) > 0)
+    <div class="container col-lg-8 border">
+        <h5 class="text-center text-danger"><b>ERRORES</b></h5>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li class="text-danger">{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     {!! Form::open(['action' => 'App\Http\Controllers\EmpresaController@store']) !!}
     {{ csrf_field() }}
     <div class="form-group">
