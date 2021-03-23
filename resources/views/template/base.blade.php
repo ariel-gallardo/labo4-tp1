@@ -7,15 +7,9 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header>
-        @yield('header')
-    </header>
-    <main>
-        @yield('content')
-    </main>
-    <footer>
-        @yield('footer')
-    </footer>
+    <header>@yield('header')</header>
+    <main>@yield('content')</main>
+    <footer class="top-border">@yield('footer')</footer>
     @yield('script')
 </body>
 </html>

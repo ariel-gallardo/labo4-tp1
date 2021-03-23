@@ -1,15 +1,20 @@
 @extends('template.base')
+
 @section('head')
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="format-detection" content="telephone=no" />
 <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 @endsection
+
 @section('css')
+@yield('css2')
 <!-- Bootstrap -->
-    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
 <!-- Links -->
-    <link rel="stylesheet" href="{{asset('css/search.css')}}">
+<link rel="stylesheet" href="{{asset('css/search.css')}}">
+
 @endsection
+
 @section('script')
 <!--JS-->
 <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
@@ -19,8 +24,8 @@
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/tm-scripts.js')}}"'></script>
 @endsection
-@section('header')
-<div class="container top-sect">
+
+@section('header') <div class="container top-sect">
     <div class="navbar-header">
         <h1 class="navbar-brand">
             <a data-type='rd-navbar-brand' href="/empresa/{{$empresa->id}}"><small>{{$empresa->denominacion}}</small></a>
