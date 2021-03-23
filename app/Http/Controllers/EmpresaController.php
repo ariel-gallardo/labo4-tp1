@@ -27,7 +27,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        return view('welcome')->with('empresas', Empresa::all());
+        return view('welcome')->with('empresas', Empresa::paginate('10'));
     }
 
     /**
