@@ -9,6 +9,6 @@ class Empresa extends Model
 {
     use HasFactory;
     public function noticias(){
-        return $this->HasMany(Noticia::class);
+        return $this->HasMany(Noticia::class, 'idEmpresa');
     }
 }

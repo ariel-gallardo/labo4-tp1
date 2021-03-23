@@ -71,7 +71,8 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        return view('home')->with('empresa',$empresa);
+        $empresa->load('noticias');
+        return view('home')->with('empresa', $empresa);
     }
 
     /**
