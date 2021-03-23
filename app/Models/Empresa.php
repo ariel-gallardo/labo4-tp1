@@ -11,4 +11,9 @@ class Empresa extends Model
     public function noticias(){
         return $this->HasMany(Noticia::class, 'idEmpresa');
     }
+
+    public function last5(){
+        return $this->noticias()->take(5)->orderBy('id','DESC');
+    }
+
 }

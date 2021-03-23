@@ -71,7 +71,7 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        $empresa->load('noticias');
+        $empresa->load('last5');
         return view('home')->with('empresa', $empresa);
     }
 
