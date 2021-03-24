@@ -16,11 +16,11 @@
               <div class="camera_caption fadeIn">
                 <div class="jumbotron jumbotron1">
                   <em>
-                    <a href="detalle.html">{{$noticia->titulo}}</a>
+                    <a href="/empresa/{{$empresa->id}}/noticias/{{$noticia->id}}">{{$noticia->titulo}}</a>
                   </em>
                   <div class="wrap">
                     <p>{{$noticia->resumen}}</p>
-                    <a href="detalle.html" class="btn-link fa-angle-right"></a>
+                    <a href="/empresa/{{$empresa->id}}/noticias/{{$noticia->id}}" class="btn-link fa-angle-right"></a>
                   </div>
                 </div>
               </div>
