@@ -51,11 +51,12 @@ class NoticiaController extends Controller
      */
     public function show(Empresa $empresa, Noticia $noticia)
     {
-        if($empresa->id === $noticia->empresa_id){
-            return view('detalle',compact('noticia','empresa'));
-        }else{
-            return response()->view('errors.404',compact('empresa'),404);
+
+        if ($empresa->id === $noticia->empresa_id) {
+            return view('detalle', compact('noticia', 'empresa'));
         }
+
+        return response()->view('errors.404', compact('empresa'), 404);
     }
 
     /**
