@@ -117,5 +117,5 @@ class EmpresaController extends Controller
         $empresa->delete();
         return redirect('/');
     }
-    
+
 }

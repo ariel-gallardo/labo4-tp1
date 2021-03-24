@@ -54,7 +54,7 @@ class NoticiaController extends Controller
         if($empresa->id === $noticia->empresa_id){
             return view('detalle',compact('noticia','empresa'));
         }else{
-            abort(404);
+            return response()->view('errors.404',compact('empresa'),404);
         }
     }
 
