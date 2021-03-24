@@ -26,6 +26,7 @@
 @endsection
 
 @section('header') <div class="container top-sect">
+    @if(isset($empresa))
     <div class="navbar-header">
         <h1 class="navbar-brand">
             <a data-type='rd-navbar-brand' href="/empresa/{{$empresa->id}}"><small>{{$empresa->denominacion}}</small></a>
@@ -61,8 +62,10 @@
         </form>
     </div>
 </div>
+@endif
 @endsection
 @section('footer')
+@if(isset($empresa))
 @yield('mapa')
 <section class="well">
     <div class="container">
@@ -73,4 +76,5 @@
         </p>
     </div>
 </section>
+@endif
 @endsection
