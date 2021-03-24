@@ -28,7 +28,7 @@ class NoticiaFactory extends Factory
             'contenido' => $this->faker->realText(),
             'publica' => $this->faker->regexify('[yn]'),
             'fecha' => $this->faker->date(),
-            'idEmpresa' => $this->faker->numberBetween(1, 50)
+            'empresa_id' => $this->faker->numberBetween(1, 50)
         ];
     }
 }

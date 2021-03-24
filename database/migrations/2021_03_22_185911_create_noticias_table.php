@@ -22,8 +22,8 @@ class CreateNoticiasTable extends Migration
             $table->text('contenido',20480);
             $table->char('publica');
             $table->date('fecha');
-            $table->bigInteger('idEmpresa')->unsigned();
-            $table->foreign('idEmpresa')->references('id')->on('empresas')->onDelete('cascade');
+            $table->bigInteger('empresa_id')->unsigned();
+            $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
         });
     }
 

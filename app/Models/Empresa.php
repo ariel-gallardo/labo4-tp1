@@ -9,11 +9,10 @@ class Empresa extends Model
 {
     use HasFactory;
     public function noticias(){
-        return $this->HasMany(Noticia::class, 'idEmpresa');
+        return $this->hasMany(Noticia::class);
     }
 
-    public function last5(){
-        return $this->noticias()->take(5)->orderBy('id','DESC');
+    public function last5Noticias(){
+        return $this->noticias()->orderBy('id', 'DESC')->take(5);
     }
-
 }

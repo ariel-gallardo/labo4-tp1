@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\NoticiaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,18 +20,4 @@ Route::get('/', function(){
     return redirect('/empresa');
 });
 
-Route::get('/tiny', function () {
-    return view('tiny');
-});
-
-Route::get('/detalle', function () {
-    return view('detalle');
-});
-
-Route::get('/buscador', function () {
-    return view('buscador');
-});
-
-Route::get('/404', function () {
-    return view('404');
-});
+Route::resource('empresa.noticias',NoticiaController::class);

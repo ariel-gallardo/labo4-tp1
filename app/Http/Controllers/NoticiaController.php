@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empresa;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,10 @@ class NoticiaController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Empresa $empresa)
     {
         //
     }
@@ -20,9 +22,10 @@ class NoticiaController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Empresa $empresa)
     {
         //
     }
@@ -31,9 +34,10 @@ class NoticiaController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Empresa $empresa)
     {
         //
     }
@@ -41,21 +45,27 @@ class NoticiaController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  \App\Models\Empresa  $empresa
      * @param  \App\Models\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function show(Noticia $noticia)
+    public function show(Empresa $empresa, Noticia $noticia)
     {
-        //
+        if($empresa->id === $noticia->empresa_id){
+            return view('detalle',compact('noticia','empresa'));
+        }else{
+            abort(404);
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \App\Models\Empresa  $empresa
      * @param  \App\Models\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Noticia $noticia)
+    public function edit(Empresa $empresa, Noticia $noticia)
     {
         //
     }
@@ -64,10 +74,11 @@ class NoticiaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Empresa  $empresa
      * @param  \App\Models\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Noticia $noticia)
+    public function update(Request $request, Empresa $empresa, Noticia $noticia)
     {
         //
     }
@@ -75,10 +86,11 @@ class NoticiaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \App\Models\Empresa  $empresa
      * @param  \App\Models\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Noticia $noticia)
+    public function destroy(Empresa $empresa, Noticia $noticia)
     {
         //
     }
