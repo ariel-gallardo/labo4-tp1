@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\NoticiaController;
+use App\Models\Empresa;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -8,6 +8,7 @@
             <tr>
                 <th><b>EMPRESA</b></th>
                 <th><b>VER PAGINA</b></th>
+                <th><b>URL PANEL</b></th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,7 @@
             <tr>
                 <td><a href="/empresa/{{$empresa->id}}/edit">{{$empresa->denominacion}}</a></td>
                 <td><a href="/empresa/{{$empresa->id}}">/empresa/{{$empresa->id}}</a></td>
+                <td><a href="/empresa/{{$empresa->id}}/noticias">/empresa/{{$empresa->id}}/noticias</a></td>
                 @endforeach
             </tr>
         </tbody>
