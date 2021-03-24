@@ -17,8 +17,10 @@
         </p>
         <p>
           The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+          @if(isset($empresa))
           <br /><br />
           Please try using our search box below to look for information on the website.
+          @endif
         </p>
       </div>
     </div>

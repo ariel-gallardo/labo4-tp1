@@ -8,19 +8,19 @@
 @section('content')
 
   <section class="well well1 well1_ins1">
-    
+
         <div class="camera_container">
           <div id="camera" class="camera_wrap">
-          @foreach ($empresa->noticias as $noticia)
+          @foreach ($empresa->last5Noticias as $noticia)
             <div data-src="{{$noticia->imagen}}">
               <div class="camera_caption fadeIn">
                 <div class="jumbotron jumbotron1">
                   <em>
-                    <a href="detalle.html">{{$noticia->titulo}}</a>
+                    <a href="/empresa/{{$empresa->id}}/noticias/{{$noticia->id}}">{{$noticia->titulo}}</a>
                   </em>
                   <div class="wrap">
                     <p>{{$noticia->resumen}}</p>
-                    <a href="detalle.html" class="btn-link fa-angle-right"></a>
+                    <a href="/empresa/{{$empresa->id}}/noticias/{{$noticia->id}}" class="btn-link fa-angle-right"></a>
                   </div>
                 </div>
               </div>
@@ -28,7 +28,7 @@
       @endforeach
           </div>
         </div>
-    
+
   </section>
 
 <section class="well well2 wow fadeIn  bg1" data-wow-duration='3s'>
