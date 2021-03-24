@@ -8,10 +8,10 @@
 @section('content')
 
   <section class="well well1 well1_ins1">
-    
+
         <div class="camera_container">
           <div id="camera" class="camera_wrap">
-          @foreach ($empresa->noticias as $noticia)
+          @foreach ($empresa->last5Noticias as $noticia)
             <div data-src="{{$noticia->imagen}}">
               <div class="camera_caption fadeIn">
                 <div class="jumbotron jumbotron1">
@@ -28,7 +28,7 @@
       @endforeach
           </div>
         </div>
-    
+
   </section>
 
 <section class="well well2 wow fadeIn  bg1" data-wow-duration='3s'>
