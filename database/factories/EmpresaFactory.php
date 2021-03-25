@@ -22,11 +22,14 @@ class EmpresaFactory extends Factory
      */
     public function definition()
     {
+        $tiempo = $this->faker->numberBetween(0, 16);
+        $tA = ($tiempo < 10 ? '0' . $tiempo : $tiempo);
+        $tB = ($tiempo + 8 < 10 ? '0' . $tiempo + 8 : $tiempo + 8);
 
         return [
-            'denominacion' => $this->faker->company, 
+            'denominacion' => $this->faker->company,
             'telefono' => $this->faker->phoneNumber,
-            'horario' => $this->faker->dateTime(),
+            'horario' => "$tA:00hs a $tB:00hs",
             'info' => $this->faker->text,
             'latitud' =>$this->faker->numberBetween(-85.00000, 85.00000),
             'longitud' => $this->faker->numberBetween(-180.00000, 180.00000),
