@@ -12,7 +12,7 @@
             </ul>
         </div>
         @endif
-    {!! Form::open(['action' => ['App\Http\Controllers\EmpresaController@update', $empresa['id']]]) !!}
+    {!! Form::open(['action' => ['App\Http\Controllers\EmpresaController@update,', $empresa['id']]]) !!}
     {!! Form::hidden('_method', 'PUT') !!}
     {{ csrf_field() }}
     <div class="form-group">

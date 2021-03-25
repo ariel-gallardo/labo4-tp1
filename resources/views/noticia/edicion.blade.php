@@ -14,8 +14,8 @@
 <body>
     <div class="container">
         <h1 class="text-center">Empresa: {{$empresa->denominacion}}</h1>
-        <form action="/empresa/{{$empresa->id}}/noticias/store" method="POST">
-            @csrf
+        <form action="/empresa/{{$empresa->id}}/noticias" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
             <div class="container">
                 <div class="form-group">
                     <label for="titulo"><b>Titulo</b></label>
@@ -50,7 +50,7 @@
             <br />
             <br />
             <button class="btn btn-primary" type="submit">Guardar</button>
-        </form>
+       </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.5/tinymce.min.js"></script>
     <script>
