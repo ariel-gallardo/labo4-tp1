@@ -16,7 +16,7 @@ class NoticiaController extends Controller
      */
     public function index(Empresa $empresa)
     {
-        return view('noticia.lista',compact('empresa'))->with('noticias',$empresa->noticias);
+        return view('noticia.lista',compact('empresa'))->with('noticias',Noticia::where('empresa_id','=',$empresa->id)->paginate(3));
     }
 
     /**
