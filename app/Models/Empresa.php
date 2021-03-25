@@ -14,6 +14,6 @@ class Empresa extends Model
     }
 
     public function last5Noticias(){
-        return $this->noticias()->orderBy('id', 'DESC')->take(5);
+        return $this->noticias()->orderBy('fecha', 'DESC')->take(5);
     }
 }
