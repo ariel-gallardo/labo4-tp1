@@ -104,6 +104,7 @@ class EmpresaController extends Controller
         $empresa->domicilio = $request['domicilio'];
         $empresa->email = $request['email'];
         $empresa->save();
+        return redirect('/');
     }
 
     /**

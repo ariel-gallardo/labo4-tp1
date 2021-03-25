@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Nueva Noticia</title>
+    <title>@yield('pagina','Nueva Noticia')</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -14,9 +14,14 @@
 <body>
     <div class="container">
         <h1 class="text-center">Empresa: {{$empresa->denominacion}}</h1>
-        <form action="/empresa/{{$empresa->id}}/noticias" method="POST" enctype="multipart/form-data">
+        {!! Form::open(['url'=>'/empresa/'.$empresa->id.'/noticias'.(isset($noticia->id) ? '/'.$noticia->id : ''),'files' =>true,'enctype'=>'multipart/form-data']) !!}
             {{ csrf_field() }}
-            <div class="container">
+            @if(isset($noticia->id))
+                {!! Form::hidden('_method', 'PUT') !!}
+            @else
+                {!! Form::hidden('_method', 'POST') !!}
+            @endif
+                <div class="container">
                 <div class="form-group">
                     <label for="titulo"><b>Titulo</b></label>
                     <input name="titulo" type="text" class="form-control" id="titulo" value="@yield('titulo')">
@@ -27,19 +32,19 @@
                 </div>
                 <div class="form-group">
                     <label for="imagen">Imagen</label>
-                    <input name="imagen" type="file" class="form-control-file" id="imagen">
+                    <input name="imagen" type="file" class="form-control-file" id="imagen" value="@yield('imagen')">
                 </div>
                 <div>
                     <h4>¿Publicar?</h4>
                     <div class="form-check">
                         <input name="publica" class="form-check-input" type="radio" value="y" id="si"
-                            @if(isset($noticia)) @if($noticia->publica == 'y') selected @endif @endif>
+                            @if(isset($noticia)) @if($noticia->publica == 'y') checked @endif @endif>
                         <label class="form-check-label" for="si">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input name="publica" class="form-check-input" type="radio" value="n" id="no" @if(isset($noticia)) @if($noticia->publica == 'n') selected @endif @endif>
+                        <input name="publica" class="form-check-input" type="radio" value="n" id="no" @if(isset($noticia)) @if($noticia->publica == 'n') checked @endif @endif>
                         <label class="form-check-label" for="no">
                             No
                         </label>
@@ -50,7 +55,8 @@
             <br />
             <br />
             <button class="btn btn-primary" type="submit">Guardar</button>
-       </form>
+       {!! Form::close() !!}
+       @yield('borrar')
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.5/tinymce.min.js"></script>
     <script>

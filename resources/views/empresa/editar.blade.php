@@ -11,8 +11,8 @@
                 @endforeach
             </ul>
         </div>
-        @endif
-    {!! Form::open(['action' => ['App\Http\Controllers\EmpresaController@update,', $empresa['id']]]) !!}
+    @endif
+    {!! Form::open(['url' => "/empresa/$empresa->id" ]) !!}
     {!! Form::hidden('_method', 'PUT') !!}
     {{ csrf_field() }}
     <div class="form-group">

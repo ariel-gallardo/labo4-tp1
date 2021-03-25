@@ -79,7 +79,7 @@ class NoticiaController extends Controller
      */
     public function edit(Empresa $empresa, Noticia $noticia)
     {
-        return view('noticia.edicion')->with('empresa', $empresa)->with('noticia',$noticia);
+        return view('noticia.modificar')->with('empresa', $empresa)->with('noticia',$noticia);
     }
 
     /**
@@ -92,7 +92,19 @@ class NoticiaController extends Controller
      */
     public function update(Request $request, Empresa $empresa, Noticia $noticia)
     {
-        //
+        $noticia->titulo = $request->titulo;
+        $noticia->contenido = $request->contenido;
+        $noticia->resumen = $request->resumen;
+
+
+        if($noticia->imagen !== $request->imagen && $request->imagen !== null){
+            $noticia->imagen = "/storage/" . basename($request->file('imagen')->store('public'));
+        }
+
+        $noticia->publica = $request->publica;
+        $noticia->empresa_id = $empresa->id;
+        $noticia->save();
+        return redirect('/empresa/' . $empresa->id . '/noticias');
     }
 
     /**
@@ -104,6 +116,7 @@ class NoticiaController extends Controller
      */
     public function destroy(Empresa $empresa, Noticia $noticia)
     {
-        //
+        $noticia->delete();
+        return redirect('/empresa/' . $empresa->id . '/noticias');
     }
 }
