@@ -27,7 +27,7 @@ class NoticiaController extends Controller
      */
     public function create(Empresa $empresa)
     {
-        //
+        return view('noticia.edicion',compact('empresa'));
     }
 
     /**
