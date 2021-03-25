@@ -7,56 +7,48 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <style>
-        html,
-        body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: ;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-
-        button {
-            display: inline-block;
-            font-weight: 500;
-            cursor: pointer;
-            border: 1px solid transparent;
-            padding: 0.59rem 1rem;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            border-radius: 0.25rem;
-            color: #ffffff;
-            background-color: #4c84ff;
-            border-color: #4c84ff;
-        }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="content">
-        <div class="title m-b-md">
-            {{$empresa->denominacion}}
-        </div>
+    <div class="container">
+        <h1 class="text-center">Empresa: {{$empresa->denominacion}}</h1>
         <form action="/empresa/{{$empresa->id}}/noticias/store" method="POST">
             @csrf
-            <textarea class="form-control" name="content" id="description-textarea" rows="8"></textarea>
+            <div class="container">
+                <div class="form-group">
+                    <label for="titulo"><b>Titulo</b></label>
+                    <input name="titulo" type="text" class="form-control" id="titulo">
+                </div>
+                <div class="form-group">
+                    <label for="resumen"><b>Resumen</b></label>
+                    <input name="resumen" type="text" class="form-control" id="resumen">
+                </div>
+                <div class="form-group">
+                    <label for="imagen">Imagen</label>
+                    <input name="imagen" type="file" class="form-control-file" id="imagen">
+                </div>
+                <div>
+                    <h4>¿Publicar?</h4>
+                    <div class="form-check">
+                        <input name="publica" class="form-check-input" type="radio" value="y" id="si">
+                        <label class="form-check-label" for="si">
+                            Si
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input name="publica" class="form-check-input" type="radio" value="n" id="no">
+                        <label class="form-check-label" for="no">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <textarea class="form-control" name="contenido" id="description-textarea" rows="8"></textarea>
             <br />
             <br />
-            <button type="submit">Save</button>
+            <button class="btn btn-primary" type="submit">Guardar</button>
         </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.5/tinymce.min.js"></script>
@@ -98,6 +90,15 @@
                 },
         }
         tinymce.init(editor_config);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 </body>
 
