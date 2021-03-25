@@ -1,4 +1,5 @@
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="utf-8">
     <title>TinyMCE in Laravel</title>
@@ -75,6 +76,26 @@
             relative_urls: false,
             language: document.documentElement.lang,
             height: 300,
+            file_browser_callback : function (field_name, url, type, win) {
+                var x = window.innerWidth || document.documentElement.clientWidth || document.querySelector('body').clientWidth;
+                var y = window.innerHeight || document.documentElement.clientHeight || document.querySelector('body').clientHeight;
+
+                var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+                if (type == 'image') {
+                cmsURL = cmsURL + "&type=Images";
+                } else {
+                cmsURL = cmsURL + "&type=Files";
+                }
+
+                tinyMCE.activeEditor.windowManager.open({
+                file: cmsURL,
+                title: 'Filemanager',
+                width: x * 0.8,
+                height: y * 0.8,
+                resizable: "yes",
+                close_previous: "no"
+                });
+                },
         }
         tinymce.init(editor_config);
     </script>
