@@ -12,16 +12,16 @@
         </thead>
         <tbody>
             @foreach ($noticias as $noticia)
-            <th>
-            <td><a href="/empresa/{{$empresa->id}}/noticias/{{$noticia->id}}">{{$noticia->titulo}}</a></td>
-            <td>{{$empresa->fecha}}</td>
-            <td>X</td>
-            </th>
+            <tr>
+                <td><a href="/empresa/{{$empresa->id}}/noticias/{{$noticia->id}}">{{$noticia->titulo}}</a></td>
+                <td>{{$noticia->fecha}}</td>
+                <td>X</td>
+            </tr>
             @endforeach
         </tbody>
     </table>
-    <div class="col-lg-3 mx-auto">
-        {{$empresas->links()}}
+    <div class="col-lg-1 mx-auto">
+        {{$noticias->links()}}
     </div>
 </div>
 @endsection
