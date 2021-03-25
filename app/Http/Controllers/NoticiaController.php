@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Empresa;
 use App\Models\Noticia;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 
@@ -41,11 +42,11 @@ class NoticiaController extends Controller
     public function store(Request $request, Empresa $empresa)
     {
         $noticia = new Noticia();
-        $noticia->fecha = new Date();
+        $noticia->fecha = new DateTime();
         $noticia->titulo = $request->titulo;
         $noticia->contenido = $request->contenido;
         $noticia->resumen = $request->resumen;
-        $noticia->imagen = $request->imagen;
+        $noticia->imagen = "/storage/".basename($request->file('imagen')->store('public'));
         $noticia->publica = $request->publica;
         $noticia->empresa_id = $empresa->id;
         $noticia->save();
@@ -78,7 +79,7 @@ class NoticiaController extends Controller
      */
     public function edit(Empresa $empresa, Noticia $noticia)
     {
-        //
+        return view('noticia.edicion')->with('empresa', $empresa)->with('noticia',$noticia);
     }
 
     /**
