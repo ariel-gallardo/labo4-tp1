@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Empresa;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class NoticiaController extends Controller
 {
@@ -39,7 +40,16 @@ class NoticiaController extends Controller
      */
     public function store(Request $request, Empresa $empresa)
     {
-        //
+        $noticia = new Noticia();
+        $noticia->fecha = new Date();
+        $noticia->titulo = $request->titulo;
+        $noticia->contenido = $request->contenido;
+        $noticia->resumen = $request->resumen;
+        $noticia->imagen = $request->imagen;
+        $noticia->publica = $request->publica;
+        $noticia->empresa_id = $empresa->id;
+        $noticia->save();
+        return redirect('/empresa/'.$empresa->id.'/noticias');
     }
 
     /**
