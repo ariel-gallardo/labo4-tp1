@@ -24,7 +24,7 @@
           </dt>
           <hr>
           <dd>
-            {{$noticia->contenido}}
+            {!! clean($noticia->contenido) !!}
           </dd>
         </dl>
       </div>

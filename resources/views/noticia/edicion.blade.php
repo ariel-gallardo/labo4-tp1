@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>TinyMCE in Laravel</title>
+    <title>Nueva Noticia</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -19,11 +19,11 @@
             <div class="container">
                 <div class="form-group">
                     <label for="titulo"><b>Titulo</b></label>
-                    <input name="titulo" type="text" class="form-control" id="titulo">
+                    <input name="titulo" type="text" class="form-control" id="titulo" value="@yield('titulo')">
                 </div>
                 <div class="form-group">
                     <label for="resumen"><b>Resumen</b></label>
-                    <input name="resumen" type="text" class="form-control" id="resumen">
+                    <input name="resumen" type="text" class="form-control" id="resumen" value="@yield('resumen')">
                 </div>
                 <div class="form-group">
                     <label for="imagen">Imagen</label>
@@ -32,20 +32,21 @@
                 <div>
                     <h4>¿Publicar?</h4>
                     <div class="form-check">
-                        <input name="publica" class="form-check-input" type="radio" value="y" id="si">
+                        <input name="publica" class="form-check-input" type="radio" value="y" id="si"
+                            @if(isset($noticia)) @if($noticia->publica == 'y') selected @endif @endif>
                         <label class="form-check-label" for="si">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input name="publica" class="form-check-input" type="radio" value="n" id="no">
+                        <input name="publica" class="form-check-input" type="radio" value="n" id="no" @if(isset($noticia)) @if($noticia->publica == 'n') selected @endif @endif>
                         <label class="form-check-label" for="no">
                             No
                         </label>
                     </div>
                 </div>
             </div>
-            <textarea class="form-control" name="contenido" id="description-textarea" rows="8"></textarea>
+            <textarea class="form-control" name="contenido" id="description-textarea" rows="8">@yield('contenido')</textarea>
             <br />
             <br />
             <button class="btn btn-primary" type="submit">Guardar</button>
